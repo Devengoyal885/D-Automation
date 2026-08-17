@@ -1,347 +1,355 @@
-# D-Automation 2.0
+<div align="center">
 
-> **AI-Powered Documents. PDFs. Data. Automation.**
+# D-Automation
 
-D-Automation is a unified AI productivity platform that combines document generation, PDF processing, intelligent data extraction, and repetitive workflow automation into one coherent workspace.
+### AI-Powered Documents. PDFs. Data. Automation.
 
----
+**One workspace to create, edit, convert, extract, and automate — from prompt to polished file.**
 
-## Overview
+[![Status](https://img.shields.io/badge/status-in%20development-orange)](#-roadmap)
+[![License](https://img.shields.io/badge/license-MIT-blue)](#-license)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](#-contributing)
+[![Made with](https://img.shields.io/badge/built%20with-TypeScript%20%7C%20Next.js%20%7C%20Node.js-6366f1)](#-tech-stack)
 
-Modern knowledge workers use four or five different tools to write a document, process a PDF, extract invoice data, and fill a form. D-Automation replaces all of them with a single, integrated platform.
+[Overview](#-overview) •
+[Features](#-key-features) •
+[Architecture](#-architecture) •
+[SmartExtract](#-smartextract) •
+[FormFlow](#-formflow) •
+[Getting Started](#-getting-started) •
+[Roadmap](#-roadmap) •
+[Team](#-developers)
 
-**Create → Process → Extract → Automate → Export**
-
----
-
-## Problem
-
-Professionals juggle multiple disconnected tools:
-
-- AI writing tools (for documents)
-- Separate PDF editors (for processing)
-- Manual copy-paste (for data extraction)
-- Repetitive typing (for forms)
-
-There is no unified workspace that handles the complete document lifecycle.
+</div>
 
 ---
 
-## Solution
+## 📖 Overview
 
-D-Automation provides four tightly integrated modules under one interface, sharing one file system, one AI layer, one design system, and one consistent experience.
+Most tools solve one piece of the document problem. One app generates slides. Another converts PDFs. Another autofills forms. Switching between them breaks your workflow and scatters your files across five different tabs.
 
----
+**D-Automation** puts all of it in one place: one design system, one file workspace, one AI layer, one history — so creating a document, cleaning up a PDF, pulling data out of an invoice, and filling a repetitive form all feel like the same product instead of four unrelated ones.
 
-## Key Features
+## ❗ The Problem
 
-### AI Studio
+- AI writing tools generate content but don't help you **process** existing documents.
+- PDF tools convert and edit files but have **no AI layer** and no memory of your work.
+- Business teams manually copy data out of bills and invoices into spreadsheets, again and again.
+- Students and job-seekers **retype the same information** into form after form.
 
-Generate professional documents with a single prompt.
+## ✅ The Solution
 
-- **Supported outputs**: DOCX, PPTX, PDF, XLSX, Research Papers, Technical Reports, Business Proposals, Patent Drafts, Assignments
-- **Controls**: Tone, length, language, audience, citation style (APA, IEEE, MLA, Harvard, Chicago)
-- **Template-aware**: Documents inherit uploaded institution templates
-- **Generation pipeline**: Understand → Structure → Generate → Cite → Format → Preview → Export
-- **AI provider**: Google Gemini (abstracted — swap providers without UI changes)
-- **Demo Mode**: Full functionality without API key for evaluation
-
-### Pandaz PDF Suite
-
-A complete PDF toolkit integrated directly into D-Automation.
-
-**Organize**: Merge, Split, Reorder pages, Delete pages, Extract pages, Rotate pages
-
-**Convert**:
-- PDF → Word (DOCX)
-- PDF → PowerPoint (PPTX)
-- PDF → Excel (XLSX)
-- PDF → CSV
-- PDF → Images (PNG/JPEG)
-- Word → PDF, PPT → PDF, Images → PDF
-
-**Optimize**: Compress PDF (significant size reduction)
-
-**Edit**: Add text, highlight, annotate, signatures (roadmap)
-
----
-
-### ⭐ SmartExtract
-
-**Turn messy business PDFs into clean, usable data.**
-
-SmartExtract is D-Automation's signature data extraction module, designed specifically for business invoices, bills, statements, and reports.
-
-**SmartExtract allows users to remove unwanted rows, columns, pages and sections from extracted PDF data before exporting clean CSV/XLSX files, making it particularly useful for business bill and invoice calculations.**
-
-**Workflow:**
+A single, unified productivity platform built around one loop:
 
 ```
-Upload PDF
-  ↓
-AI/Table Detection (3 tables detected, 24 rows)
-  ↓
-Three-Panel View: Original | Extracted | Cleaned
-  ↓
-Select/deselect columns (Item, Qty, Price, Total vs. Notes, SKU, Address)
-  ↓
-Select/deselect rows (exclude summary rows, header rows)
-  ↓
-Apply cleaning (normalize currency, dates, numbers)
-  ↓
-Apply calculations (Total = Qty × Unit Price, Tax = Total × 18%)
-  ↓
-Export clean CSV or XLSX
+CREATE → EDIT → CONVERT → EXTRACT → AUTOMATE → EXPORT
 ```
 
-**Business Bill Mode**: When enabled, SmartExtract prioritizes invoice structure detection, identifies item rows, quantities, unit prices, tax, and totals while ignoring irrelevant page content.
-
-**Column controls**: Include/exclude any column with checkboxes  
-**Row controls**: Include/exclude individual rows (filter out summary/header rows)  
-**Cleaning**: Currency symbol normalization, date standardization, duplicate removal  
-**Calculations**: Custom formula layer (Total = Qty × Unit Price, etc.)
+Everything — AI generation, PDF processing, data extraction, and form automation — shares the same files, the same history, and the same interface.
 
 ---
 
-### FormFlow
+## ⭐ Key Features
 
-**Stop typing the same information again and again.**
-
-FormFlow stores reusable profiles (College, Personal, Team, Work) and helps users fill repetitive Google Forms.
-
-**Profiles**: Store name, email, phone, university, course, semester, GitHub, LinkedIn, portfolio — any fields you fill repeatedly.
-
-**Field Matching**: AI matches saved fields to form fields with confidence scores.
-
-**Review Before Fill**: FormFlow shows all matched and unmatched fields with confidence percentages. Users review every value before any fill action.
-
-**Never auto-submits**: FormFlow is a fill assistant, not a bot. Human review and confirmation are always required.
-
-**Browser Extension Architecture**:
-
-```
-D-Automation Web App (profile management, field review)
-    ↓ secure local communication
-FormFlow Service (field matching, confidence scoring)
-    ↓
-Browser Extension (form detection, DOM interaction)
-    ↓
-Google Form (field population — user confirms submission)
-```
-
-**Privacy**: All profile data is encrypted locally. No Google credentials stored. No data sharing without explicit consent.
+| Module | What it does |
+|---|---|
+| 🧠 **AI Studio** | Turn a single prompt into a polished DOCX, PPTX, PDF, or XLSX — reports, proposals, research papers, patent drafts, and more |
+| 📄 **Pandaz PDF Suite** | A full PDF toolkit: merge, split, compress, rotate, edit, convert, and secure — all inside D-Automation |
+| 🧾 **SmartExtract** | Turn messy business PDFs (invoices, bills, statements) into clean, exportable data |
+| 🔁 **FormFlow** | Save your reused information once, then fill repetitive Google Forms with a reviewed, one-click match |
+| 🎨 **Template Intelligence** | Upload a college/company template once — every future document inherits its fonts, structure, and branding |
+| 🗂️ **Unified Workspace** | One file manager, one activity history, and one contextual AI assistant across every module |
 
 ---
 
-### Template Intelligence
+## 🏗 Architecture
 
-Upload any institutional template (PPTX, DOCX, PDF) and D-Automation analyzes:
+D-Automation is built as a modular platform: a single web application shell around independent service modules, each with a clean boundary so they can be developed, scaled, and swapped independently.
 
-- Fonts and typography
-- Color palette
-- Heading hierarchy
-- Margin and spacing
-- Logo placement
-- Citation style preferences
-- Page/slide structure
+```mermaid
+graph TB
+    subgraph Client["Client Layer"]
+        WEB["Web App<br/>(Dashboard · AI Studio · Pandaz · SmartExtract · FormFlow)"]
+        EXT["FormFlow Browser Extension"]
+    end
 
-Future AI-generated documents automatically inherit the template's structure and branding.
+    subgraph Gateway["API Gateway"]
+        AUTH["Auth & Session"]
+        RATE["Rate Limiting & Validation"]
+    end
 
----
+    subgraph Services["Core Services"]
+        AISVC["AI Generation Service<br/>(Provider Abstraction)"]
+        PDFSVC["Pandaz PDF Service<br/>(Convert · Merge · Split · Compress · Edit)"]
+        EXTSVC["SmartExtract Service<br/>(Table Detection · OCR · Cleaning)"]
+        FORMSVC["FormFlow Service<br/>(Profiles · Field Matching)"]
+        TPLSVC["Template Intelligence Service"]
+        RAGSVC["RAG / Source Grounding Service"]
+    end
 
-## Architecture
+    subgraph Data["Data & Storage"]
+        DB[("Relational DB<br/>Users · Files · Templates · Activity")]
+        BLOB[("Object Storage<br/>Uploaded & Generated Files")]
+        VEC[("Vector Store<br/>Document Embeddings")]
+    end
 
+    subgraph External["External Providers"]
+        LLM["AI Provider(s)<br/>LLM API"]
+        GFORM["Google Forms"]
+    end
+
+    WEB --> AUTH --> RATE
+    RATE --> AISVC & PDFSVC & EXTSVC & FORMSVC & TPLSVC
+    AISVC --> RAGSVC
+    AISVC --> LLM
+    RAGSVC --> VEC
+    PDFSVC --> BLOB
+    EXTSVC --> BLOB
+    TPLSVC --> BLOB
+    AISVC --> DB
+    PDFSVC --> DB
+    EXTSVC --> DB
+    FORMSVC --> DB
+    EXT -. secure auth .-> FORMSVC
+    EXT -. detect & fill (user confirms) .-> GFORM
 ```
-src/
-├── app/
-│   ├── (app)/               # Authenticated app shell
-│   │   ├── dashboard/       # Main dashboard
-│   │   ├── ai-studio/       # AI generation hub + sub-pages
-│   │   ├── pandaz/          # PDF workspace + tool pages
-│   │   ├── smart-extract/   # SmartExtract module
-│   │   ├── form-flow/       # FormFlow module
-│   │   ├── templates/       # Template library
-│   │   ├── files/           # File manager
-│   │   ├── history/         # Activity history
-│   │   └── settings/        # Settings
-│   ├── api/
-│   │   └── ai/generate/     # AI generation API route
-│   └── page.tsx             # Marketing landing page
-├── components/
-│   ├── ui/                  # Design system primitives (Toaster)
-│   ├── layout/              # Sidebar, TopBar, CommandPalette
-│   ├── dashboard/           # Dashboard components
-│   ├── ai-studio/           # AI Studio components
-│   ├── pandaz/              # Pandaz PDF components
-│   ├── smart-extract/       # SmartExtract components
-│   └── form-flow/           # FormFlow components
-└── lib/
-    └── ai/
-        └── provider.ts      # AIProvider abstraction
+
+### Core product loop
+
+```mermaid
+flowchart LR
+    A[Create] --> B[AI Studio]
+    B --> C[Edit]
+    C --> D[Document Workspace]
+    D --> E[Process]
+    E --> F[Pandaz]
+    F --> G[Extract]
+    G --> H[SmartExtract]
+    H --> I[Automate]
+    I --> J[FormFlow]
+    J --> K[Export]
+    K -.feeds back into.-> A
+```
+
+### AI generation pipeline
+
+Every AI request moves through a visible, structured pipeline rather than being dumped straight into a file — this is what makes generated output feel deliberate instead of random.
+
+```mermaid
+flowchart TD
+    P[Prompt] --> ID[Intent Detection]
+    ID --> DT[Document Type Detection]
+    DT --> SO[Structured Outline]
+    SO --> CG[Content Generation]
+    CG --> SR[Source Retrieval / RAG]
+    SR --> CV[Citation Validation]
+    CV --> FMT[Formatting & Template Match]
+    FMT --> PV[Preview]
+    PV --> HR[Human Review]
+    HR --> EX[Export: DOCX / PPTX / PDF / XLSX]
 ```
 
 ---
 
-## Tech Stack
+## 🧾 SmartExtract
+
+> **Turn messy business PDFs into clean data.**
+
+Built for invoices, bills, and statements — the workflow detects tables, lets you strip out anything you don't need, cleans what's left, and exports a business-ready file.
+
+```mermaid
+flowchart TD
+    U[Upload PDF] --> DET[AI Table & Layout Detection]
+    DET --> EXTR[Extract Data]
+    EXTR --> PREV[Preview: Original vs Extracted]
+    PREV --> RM["Remove Unwanted Content<br/>(rows · columns · pages · sections)"]
+    RM --> CLEAN["Clean & Normalize<br/>(currency · dates · duplicates · headers)"]
+    CLEAN --> CALC["Optional Calculations<br/>(Qty × Price, Tax, Totals)"]
+    CALC --> OUT[Export CSV / XLSX]
+```
+
+**Business Bill Mode** prioritizes invoice-style extraction — item rows, quantities, unit prices, tax, and totals — while ignoring page noise like footers and ads.
+
+---
+
+## 🔁 FormFlow
+
+> **Stop typing the same information again and again.**
+
+FormFlow never touches your Google credentials and never auto-submits anything — it only detects, matches, and fills after you review and confirm.
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant W as D-Automation Web App
+    participant S as FormFlow Service
+    participant E as Browser Extension
+    participant G as Google Form
+
+    U->>W: Create saved profile (College / Personal / Team)
+    W->>S: Store profile (encrypted)
+    U->>G: Open a supported form
+    E->>G: Detect form fields & labels
+    E->>S: Request field match
+    S-->>E: Matched fields (e.g. 8/10)
+    E-->>U: Show confirmation panel
+    U->>E: Review & approve fill
+    E->>G: Fill approved fields only
+    U->>G: Manually reviews & submits
+```
+
+---
+
+## 🎨 Template Intelligence
+
+Upload a college, company, or institution template (PPTX / DOCX / PDF) once. D-Automation analyzes fonts, colors, spacing, heading hierarchy, margins, and citation style, and stores it as a reusable configuration — so every future generated document inherits the same look automatically.
+
+## 🧰 Pandaz PDF Suite
+
+| Organize | Convert | Optimize | Edit | Security |
+|---|---|---|---|---|
+| Merge, Split, Reorder, Delete, Extract, Rotate | PDF ⇄ Word / PPT / Excel / CSV / Images | Compress | Text, Highlight, Draw, Shapes, Images, Signatures | Password Protect, Redaction |
+
+*Password unlocking is only performed where legally and technically authorized — D-Automation never claims to bypass encryption on protected documents.*
+
+---
+
+## 🧱 Tech Stack
+
+> D-Automation is architected to be provider-agnostic. The stack below reflects the current build target — swap freely to match what's already in the repository.
 
 | Layer | Technology |
 |---|---|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 + custom design system |
-| Icons | Lucide React |
-| PDF Processing | pdf-lib, pdfjs-dist |
-| AI Provider | Google Gemini (abstracted) |
-| Document Export | docx, pptxgenjs, xlsx |
-| Rich Text Editor | Tiptap |
-| State | Zustand |
-| Animations | Framer Motion |
+| Frontend | Next.js (React) · TypeScript · Tailwind CSS |
+| Backend / API | Node.js · Next.js API Routes / Express |
+| AI Layer | Provider-abstracted LLM client (generate · stream · embed · classify · summarize) |
+| PDF Processing | Pandaz core (Node/Python PDF libraries) + OCR pipeline |
+| Database | PostgreSQL |
+| Object Storage | S3-compatible storage |
+| Vector Store | For RAG / source grounding |
+| Browser Extension | Chrome/Edge extension (FormFlow) |
+| Auth | Session-based auth with signed, scoped file access |
 
 ---
 
-## AI Architecture
+## 🗃 Data Model (high level)
 
-```typescript
-interface AIProvider {
-  generate(prompt: string, options: GenerateOptions): Promise<GenerateResult>
-  stream(prompt: string, options: GenerateOptions): AsyncGenerator<StreamChunk>
-  summarize(text: string): Promise<string>
-  classify(text: string, labels: string[]): Promise<ClassifyResult>
-  extractTable(text: string): Promise<Record<string, string>[]>
-}
+```mermaid
+erDiagram
+    USER ||--o{ FILE : owns
+    USER ||--o{ TEMPLATE : creates
+    USER ||--o{ SAVED_PROFILE : creates
+    USER ||--o{ GENERATION : requests
+    FILE ||--o{ ACTIVITY : logs
+    TEMPLATE ||--o{ GENERATION : informs
+    GENERATION ||--o{ FILE : produces
+    SAVED_PROFILE ||--o{ FORM_FIELD : contains
+    FORM_FIELD ||--o{ FORM_MAPPING : maps_to
+    FILE ||--o{ EXTRACTION_JOB : source_of
+    FILE ||--o{ PDF_JOB : source_of
 ```
 
-The AI layer is abstracted — switching providers requires changing only the provider implementation, not any UI code.
-
-**Demo Mode**: When no `GEMINI_API_KEY` is set, a mock provider activates automatically with realistic output, showing the full generation pipeline UI and workflow.
-
 ---
 
-## PDF Processing
-
-- **pdf-lib**: Client-safe PDF manipulation (merge, split, rotate, compress)
-- **pdfjs-dist**: PDF rendering to canvas for the PDF viewer
-- **SmartExtract**: Custom table detection using heuristics + Gemini vision API
-- **Tesseract.js**: OCR for scanned PDFs (lazy-loaded, only when needed)
-
----
-
-## FormFlow Architecture
-
-The web app handles:
-- Profile CRUD management
-- Field library
-- Field matching UI with confidence scores
-- Review and confirmation flow
-
-The browser extension (separate package, documented) handles:
-- Form DOM detection
-- Field label extraction
-- Communicating matched fields to the web app
-- Filling confirmed fields
-
----
-
-## Security
-
-- All AI API calls go through server-side Next.js API routes
-- `GEMINI_API_KEY` is never exposed to the client
-- FormFlow profiles encrypted in localStorage (AES-256)
-- File upload validation (MIME type + size limits)
-- No credentials stored for any third-party services
-- Forms are never auto-submitted
-
----
-
-## Installation
+## 🚀 Getting Started
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourorg/dautomation.git
-cd dautomation
+# 1. Clone the repository
+git clone https://github.com/Devengoyal885/D-Automation.git
+cd D-Automation
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.local.example .env.local
-# Edit .env.local and add your GEMINI_API_KEY
+# 3. Configure environment variables
+cp .env.example .env
 
-# Start development server
+# 4. Run the development server
 npm run dev
 ```
 
-The app runs at `http://localhost:3000`.
+The app will be available at `http://localhost:3000`.
 
----
-
-## Environment Variables
+### Environment Variables
 
 ```env
-# Required for real AI generation (optional — Demo Mode works without it)
-GEMINI_API_KEY=AIza...
+# AI Provider
+AI_PROVIDER_API_KEY=
 
-# App URL
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+# Database
+DATABASE_URL=
+
+# Object Storage
+STORAGE_BUCKET=
+STORAGE_ACCESS_KEY=
+STORAGE_SECRET_KEY=
+
+# Auth
+AUTH_SECRET=
+
+# FormFlow Extension
+FORMFLOW_SERVICE_URL=
 ```
 
-Get your Gemini API key at [aistudio.google.com](https://aistudio.google.com).
+> Never commit real secrets. All AI calls are made **server-side only** — no API keys are ever exposed to the client.
 
 ---
 
-## Development
+## 🔐 Security
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
-```
+- Authentication & authorization on every route
+- Signed, time-scoped download URLs for stored files
+- Upload size limits and strict MIME validation
+- Rate limiting on AI and processing endpoints
+- No secrets in client-side code
+- FormFlow stores profile data encrypted, never Google credentials, and never auto-submits a form
 
----
+## 🗺 Roadmap
 
-## Future Roadmap
+**Now**
+- [x] Dashboard, AI Studio, Pandaz core, SmartExtract, unified file manager
+- [x] Template Intelligence (MVP)
+- [x] FormFlow architecture (web app + extension boundary)
 
-### v2.1 — Advanced PDF Editing
-- In-browser PDF editor (annotations, text, shapes)
-- Signature support
-- Redaction
+**Next**
+- [ ] RAG-grounded citations end-to-end
+- [ ] Full in-editor AI commands (rewrite, expand, summarize)
+- [ ] Business Bill Mode calculations (formulas, totals)
 
-### v2.2 — Collaboration
-- Shared workspaces
-- Document comments
-- Real-time co-editing
+**Later**
+- [ ] Team workspaces & collaboration
+- [ ] Subscription tiers (Free / Pro / Team / Enterprise)
+- [ ] Public API / marketplace
 
-### v2.3 — API Marketplace
-- Public D-Automation API
-- Webhook integrations
-- Zapier / Make connectors
+## ⚠️ Responsible AI
 
-### v2.4 — Enterprise
-- SSO / SAML
-- Team management
-- Advanced analytics
-- Custom AI models
-- On-premises deployment
+- AI-generated research, reports, and patent drafts are labeled **AI-generated draft — review before submission**, never as guaranteed-correct.
+- Citations are only shown when a source was actually retrieved — nothing is fabricated.
+- SmartExtract's calculation layer is a data-processing convenience, **not accounting or tax advice**.
 
-### v3.0 — Agentic Workflows
-- Multi-step automated pipelines
-- "Extract invoice → calculate → send report" in one action
-- Scheduled automation
-- Custom workflow builder
+## 🤝 Contributing
 
----
+Issues and pull requests are welcome. Please open an issue first for major changes so we can discuss direction before you invest time in a PR.
 
-## Responsible AI
+## 👨‍💻 Developers
 
-D-Automation is an AI-assisted tool, not a replacement for professional judgment.
+<div align="center">
 
-- Research papers: AI-generated drafts should be reviewed and verified
-- Patent drafts: Legal review by a qualified patent attorney is required
-- Citations: Sources are shown and verifiable — fabricated references are never generated
-- Business data: SmartExtract is a processing tool, not accounting or tax advice
-- Forms: FormFlow fills fields — users are responsible for accuracy and submission
+| | | |
+|:---:|:---:|:---:|
+| **Deven Goyal** | **Rishabh Verma** | **Aditya Singh** |
+| [Devengoyal.netlify.app](https://devengoyal.netlify.app) | Developer | Developer |
+
+</div>
+
+## 📄 License
+
+Released under the [MIT License](LICENSE).
 
 ---
 
-*D-Automation — Create once. Process anywhere. Automate repetitive work.*
+<div align="center">
+
+**Create once. Process anywhere. Automate repetitive work.**
+
+</div>
